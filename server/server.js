@@ -51,3 +51,8 @@ app.get('/api/contacts/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch contact' });
   }
 });
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
