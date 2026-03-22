@@ -52,6 +52,68 @@ app.get('/api/contacts/:id', async (req, res) => {
   }
 });
 
+// Create a contact
+app.post('/api/contacts', async (req, res) => {
+  const { name, email, phone, notes } = req.body;
+
+  if (!name || !email) {
+    return res.status(400).json({ error: 'Name and email are required.' });
+  }
+
+  try {
+    const result = await pool.query(
+      `INSERT INTO contacts (name, email, phone, notes)
+       VALUES ($1, $2, $3, $4)
+       RETURNING *`,
+      [name, email, phone || null, notes || null]
+    );
+
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+
+    //unique email violation
+    if (err.code === '23505') {
+      return res.status(400).json({ error: 'Email must be unique.' });
+    }
+
+    res.status(500).json({ error: 'Failed to create contact' });
+  }
+});
+
+//Update a contact
+app.put('/api/contacts/:id', async (req, res) => {
+  console.log('PUT BODY:', req.body);
+
+  const { id } = req.params;
+  const { name, email, phone, notes } = req.body;
+
+  if (!name || !email) {
+    return res.status(400).json({ error: 'Name and email are required' });
+  }
+
+  try {
+    const result = await pool.query(
+      `UPDATE contacts
+       SET name = $1,
+           email = $2,
+           phone = $3,
+           notes = $4
+       WHERE id = $5
+       RETURNING *`,
+      [name, email, phone || null, notes || null, id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Contact not found' });
+    }
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to update contact' });
+  }
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
