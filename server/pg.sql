@@ -33,8 +33,8 @@ INSERT INTO contacts (name, email, phone, notes) VALUES
 ('Grace Davison', 'grace@example.com', '555-333-2344', 'Loves to sing'),
 ('Maki Wolde', 'maki@example.com', '207-345-2344', 'Loves to learn'),
 ('Pam Davison', 'pam@example.com', '414-554-5666', 'Enjoys puzzles'),
-('Ruhama Davison', 'ruhama@example.com', '424-345-1234', 'Family'),
-('Paige Crooks', 'paige@example.com', '424-333-1234', 'Friend');
+('Ruhama Davison', 'ruhama@example.com', '424-345-1234', 'Loves to paint'),
+('Paige Crooks', 'paige@example.com', '424-333-1234', 'Loves to dance and create');
 
 
 
