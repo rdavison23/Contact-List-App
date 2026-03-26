@@ -24,6 +24,16 @@ function EditContact() {
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
+  if (!values.name.trim()) {
+    alert('Name is required');
+    return;
+  }
+
+  if (!values.email.includes('@')) {
+    alert('Email must be valid');
+    return;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
