@@ -37,14 +37,22 @@ function EditContact() {
       return;
     }
 
-    await fetch(`http://localhost:3000/api/contacts/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values),
-    });
+    try {
+      const res = await fetch(`http://localhost:3000/api/contacts/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
 
-    alert('Contact updated');
-    window.location.href = `/contacts/${id}`;
+      if (!res.ok) {
+        throw new Error('Failed to update contact');
+      }
+
+      alert('Contact updated!');
+      window.location.href = `/contacts/${id}`;
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   return (
