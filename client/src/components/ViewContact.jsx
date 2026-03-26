@@ -27,6 +27,19 @@ function ViewContact() {
           <li key={tag.id}>tag.label</li>
         ))}
       </ul>
+      <button
+        onClick={async () => {
+          await fetch(`http://localhost:4000/api/contacts/${id}`, {
+            method: 'DELETE',
+          });
+          alert('Contact deleted');
+          window.location.href = '/';
+        }}>
+        Delete Contact
+      </button>
+      <button onClick={() => (window.location.href = `/edit/${id}`)}>
+        Edit Contact
+      </button>
     </div>
   );
 }
