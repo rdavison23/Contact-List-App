@@ -13,24 +13,35 @@ function CreateContact() {
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  if (!values.name.trim()) {
-    alert('Name is required');
-    return;
-  }
-
-  if (!values.email.includes('@')) {
-    alert('Email must be valid');
-    return;
-  }
-
   const handleSubmit = async (e) => {
-    e.prventDefault();
+    e.preventDefault();
 
-    await fetch('http://localhost:3000/api/contacts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    alert('contact created!');
+    if (!values.name.trim()) {
+      alert('Name is required');
+      return;
+    }
+
+    if (!values.email.includes('@')) {
+      alert('Email must be valid');
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:3000/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to create contact');
+      }
+
+      alert('Contact created!');
+      window.location.href = '/';
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   return (

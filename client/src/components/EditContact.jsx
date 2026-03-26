@@ -24,18 +24,18 @@ function EditContact() {
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  if (!values.name.trim()) {
-    alert('Name is required');
-    return;
-  }
-
-  if (!values.email.includes('@')) {
-    alert('Email must be valid');
-    return;
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!values.name.trim()) {
+      alert('Name is required');
+      return;
+    }
+
+    if (!values.email.includes('@')) {
+      alert('Email must be valid');
+      return;
+    }
 
     await fetch(`http://localhost:3000/api/contacts/${id}`, {
       method: 'PUT',
