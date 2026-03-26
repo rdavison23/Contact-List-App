@@ -29,7 +29,7 @@ function ViewContact() {
       </ul>
       <button
         onClick={async () => {
-          await fetch(`http://localhost:4000/api/contacts/${id}`, {
+          await fetch(`http://localhost:3000/api/contacts/${id}`, {
             method: 'DELETE',
           });
           alert('Contact deleted');
