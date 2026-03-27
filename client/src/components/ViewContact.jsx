@@ -15,31 +15,43 @@ function ViewContact() {
   }, [id]);
   if (!contact) return <p>loading..</p>;
   return (
-    <div>
-      <h2>{contact.name}</h2>
-      <p>Email: {contact.email}</p>
-      <p>phone: {contact.phone}</p>
-      <p>Notes: {contact.notes}</p>
+    <div className="container">
+      <div className="card">
+        <h2>{contact.name}</h2>
 
-      <h3>tags:</h3>
-      <ul>
-        {contact.tags?.map((tag) => (
-          <li key={tag.id}>tag.label</li>
-        ))}
-      </ul>
-      <button
-        onClick={async () => {
-          await fetch(`http://localhost:3000/api/contacts/${id}`, {
-            method: 'DELETE',
-          });
-          alert('Contact deleted');
-          window.location.href = '/';
-        }}>
-        Delete Contact
-      </button>
-      <button onClick={() => (window.location.href = `/edit/${id}`)}>
-        Edit Contact
-      </button>
+        <p>
+          <strong>Email:</strong> {contact.email}
+        </p>
+        <p>
+          <strong>Phone:</strong> {contact.phone}
+        </p>
+        <p>
+          <strong>Notes:</strong> {contact.notes}
+        </p>
+
+        <h3>Tags</h3>
+        <ul>
+          {contact.tags?.map((tag) => (
+            <li key={tag.id}>{tag.label}</li>
+          ))}
+        </ul>
+
+        <button
+          className="secondary"
+          onClick={async () => {
+            await fetch(`http://localhost:3000/api/contacts/${id}`, {
+              method: 'DELETE',
+            });
+            alert('Contact deleted');
+            window.location.href = '/';
+          }}>
+          Delete Contact
+        </button>
+
+        <button onClick={() => (window.location.href = `/edit/${id}`)}>
+          Edit Contact
+        </button>
+      </div>
     </div>
   );
 }
