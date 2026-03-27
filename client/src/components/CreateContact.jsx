@@ -45,41 +45,49 @@ function CreateContact() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+    <div className="container">
+      <div className="card">
+        <form onSubmit={handleSubmit}>
+          <h2>Create Contact</h2>
 
-      <label>
-        Name:
-        <input
-          name="name"
-          value={values.name}
-          onChange={handleChange}
-          required
-        />
-      </label>
+          <div className="form-group">
+            <label>Name</label>
+            <input
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <label>
-        Email:
-        <input
-          name="email"
-          value={values.email}
-          onChange={handleChange}
-          required
-        />
-      </label>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <label>
-        Phone:
-        <input name="phone" value={values.phone} onChange={handleChange} />
-      </label>
+          <div className="form-group">
+            <label>Phone</label>
+            <input name="phone" value={values.phone} onChange={handleChange} />
+          </div>
 
-      <label>
-        Notes:
-        <textarea name="notes" value={values.notes} onChange={handleChange} />
-      </label>
+          <div className="form-group">
+            <label>Notes</label>
+            <textarea
+              name="notes"
+              value={values.notes}
+              onChange={handleChange}
+            />
+          </div>
 
-      <button type="submit">Add Contact</button>
-    </form>
+          <button type="submit">Add Contact</button>
+        </form>
+      </div>
+    </div>
   );
 }
 
