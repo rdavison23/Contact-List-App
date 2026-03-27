@@ -6,14 +6,16 @@ function ViewContact() {
   const [contact, setContact] = useState(null);
 
   useEffect(() => {
-    const fetchContacts = async () => {
+    const fetchContact = async () => {
       const res = await fetch(`http://localhost:3000/api/contacts/${id}`);
       const data = await res.json();
       setContact(data);
     };
-    fetchContacts();
+    fetchContact();
   }, [id]);
-  if (!contact) return <p>loading..</p>;
+
+  if (!contact) return <p>Loading...</p>;
+
   return (
     <div className="container">
       <div className="card">
@@ -28,13 +30,6 @@ function ViewContact() {
         <p>
           <strong>Notes:</strong> {contact.notes}
         </p>
-
-        <h3>Tags</h3>
-        <ul>
-          {contact.tags?.map((tag) => (
-            <li key={tag.id}>{tag.label}</li>
-          ))}
-        </ul>
 
         <button
           className="secondary"
