@@ -93,3 +93,42 @@ h2 {
   background: #f9f9f9;
   transform: translateY(-2px);
 }
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  padding: 28px;
+  margin: 20px auto;
+  max-width: 520px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  background: #ffffff;
+  font-size: 15px;
+  color: #1a1a1a;
+  transition: border-color 0.15s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #b5b5b5;
+}
