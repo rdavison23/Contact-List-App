@@ -104,6 +104,6 @@ CreateContact.jsx
 
 # Screenshots
 
-![Home Page](home.png)
-![alt text](<View contact.png>)
-![alt text](<New Contact.png>)
+![Home](server/assets/home.png)
+![New Contact](<server/assets/New Contact.png>)
+![View Contact](<server/assets/View contact.png>)
