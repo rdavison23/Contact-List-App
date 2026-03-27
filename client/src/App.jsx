@@ -30,7 +30,6 @@ function App() {
   return (
     <Router>
       <header>
-        <h1>Contact List</h1>
         <nav>
           <Link to="/">Home</Link> | <Link to="/create">New Contact</Link>
         </nav>
