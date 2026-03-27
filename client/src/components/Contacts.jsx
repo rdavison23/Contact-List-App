@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 function Contacts({ contacts }) {
-  const navigate = useNavigate(); // <-- You were missing this
+  const navigate = useNavigate(); 
 
   return (
     <div className="container">
