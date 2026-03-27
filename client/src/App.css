@@ -1,55 +1,95 @@
-/* Base nav style */
-.top-nav {
-  width: 100%;
-  padding: 14px 24px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: #fafafa;
+  color: #1a1a1a;
+}
+
+/* Remove ALL bullets, dashes, or list markers */
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 40px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 20px;
+  margin: 24px auto;
+  padding: 14px 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  width: fit-content;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* 🌞 Daytime nav */
-.top-nav.day {
-  background: rgba(135, 206, 250, 0.25); /* sky blue tint */
-}
-
-/* 🌙 Nighttime nav */
-.top-nav.night {
-  background: rgba(10, 10, 30, 0.35); /* deep night blue */
-}
-
-/* Nav links */
-.top-nav a {
-  color: #ffffff;
-  font-weight: 600;
+nav a {
   text-decoration: none;
-  font-size: 1.15rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: background 0.2s ease, color 0.2s ease;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
 }
 
-.top-nav a:hover {
-  background: rgba(255, 255, 255, 0.25);
+nav a:hover {
+  background: #f2f2f2;
 }
 
-/* Logout button */
-.nav-logout-btn {
-  background: #ff6b6b;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  color: white;
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: block;
+}
+
+.page-title,
+h1,
+h2 {
+  font-size: 28px;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  margin: 32px 0 20px;
+  text-align: center;
+  color: #1a1a1a;
 }
 
-.nav-logout-btn:hover {
-  background: #ff4b4b;
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Avatar using first letter */
+.contact-item::before {
+  content: attr(data-avatar);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  color: #555;
+  font-weight: 600;
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-item:hover {
+  background: #f9f9f9;
+  transform: translateY(-2px);
 }
