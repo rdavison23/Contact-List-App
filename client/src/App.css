@@ -132,3 +132,31 @@ textarea:focus {
   outline: none;
   border-color: #b5b5b5;
 }
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #f2f2f2;
+  color: #1a1a1a;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.15s ease;
+}
+
+button:hover {
+  background: #e8e8e8;
+}
+
+button.secondary {
+  background: #f9e5e5;
+  border-color: #f1cfcf;
+  color: #7a2b2b;
+}
+
+button.secondary:hover {
+  background: #f4dcdc;
+}
