@@ -1,8 +1,10 @@
+import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Contacts from './components/Contacts';
 import ViewContact from './components/ViewContact';
 import CreateContact from './components/CreateContact';
 import { useState, useEffect } from 'react';
+import EditContact from './components/EditContact';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -28,7 +30,6 @@ function App() {
   return (
     <Router>
       <header>
-        <h1>Contact List</h1>
         <nav>
           <Link to="/">Home</Link> | <Link to="/create">New Contact</Link>
         </nav>
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Contacts contacts={contacts} />} />
         <Route path="/contacts/:id" element={<ViewContact />} />
         <Route path="/create" element={<CreateContact />} />
+        <Route path="/edit/:id" element={<EditContact />} />
       </Routes>
     </Router>
   );

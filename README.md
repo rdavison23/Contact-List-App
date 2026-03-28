@@ -4,6 +4,18 @@ Full-Stack PERN Project: Contact List App
 A full‑stack contact management application built with React, Express, and PostgreSQL.
 This project allows users to create, view, update, and delete contacts, as well as associate them with tags using a many‑to‑many relationship.
 
+# Features
+
+- Create new contacts
+- View full contact details
+- Edit existing contacts
+- Delete contacts
+- Add notes to contacts
+- Assign tags (e.g., School, Work, Family)
+- Many‑to‑many tag relationship
+- Modern, minimal UI
+- Fully RESTful backend API
+
 # Tech Stack
 
 Frontend
@@ -23,9 +35,9 @@ Database
 
 - PostgreSQL
 - Tables:
-- contacts
-- tags
-- contact_tags (join table)
+- contacts => Stores contact info
+- tags => Stores tag names
+- contact_tags => Join table for many‑to‑many relationship
 
 # Backend Overview
 
@@ -77,7 +89,7 @@ CreateContact.jsx
 
 1. Setup the database
 
-   - Run the SQL file: psql -d contacts_db -f pg.sql
+   - psql -d contacts_db -f pg_dump.sql
 
 2. Start the backend
 
@@ -89,3 +101,9 @@ CreateContact.jsx
    - cd client
    - npm run dev
      -Frontend runs at:http://localhost:5173
+
+# Screenshots
+
+![Home](server/assets/home.png)
+![New Contact](<server/assets/New Contact.png>)
+![View Contact](<server/assets/View contact.png>)
